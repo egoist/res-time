@@ -9,13 +9,18 @@ module.exports = function (options) {
     const start = process.hrtime()
     const client = new net.createConnection(port, host) // eslint-disable-line
       .on('connect', () => {
-        client.end()
+        /**
+         * Why use client.destroy
+         * Instead of client.end?
+         * See http://stackoverflow.com/questions/9191587/how-to-disconnect-from-tcp-socket-in-nodejs
+         */
+        client.destroy()
         const end = process.hrtime(start)
         resolve(end[0] * 1e3 + end[1] / 1e6)
       })
       .on('error', err => reject(err))
       .on('timeout', () => {
-        client.end()
+        client.destroy()
         reject(new Error(`ETIMEDOUT ${host} ${host}:${port}`))
       })
     if (options.timeout) {
