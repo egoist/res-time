@@ -50,6 +50,10 @@ Default: `0`
 
 Connection timeout.
 
+## Related
+
+- [res-time-cli](https://github.com/egoist/res-time-cli) - CLI for this module.
+
 ## License
 
 MIT © [EGOIST](https://github.com/egoist)
