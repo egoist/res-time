@@ -1,6 +1,6 @@
 {
   "name": "res-time",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get TCP/socket response time.",
   "license": "MIT",
   "repository": "egoist/res-time",
